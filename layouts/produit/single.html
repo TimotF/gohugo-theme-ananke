@@ -9,6 +9,10 @@
         <h1 class="f1">
           {{ .Title }}
         </h1>
+        <p>
+          Référence : {{ .Params.reference }}
+        </p>
+        <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .Params.ebay }}">Acheter sur eBay</a>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         {{ .Content }}
