@@ -12,7 +12,21 @@
         <p>
           Référence : {{ .Params.reference }}
         </p>
-        <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .Params.ebay }}">Acheter sur eBay</a>
+        <p>
+          {{ if isset .Params "ebay" }}
+            <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">
+              Acheter sur eBay
+            </a>
+          {{ end }}
+
+          {{ with .Resources.Match "*" }}
+            {{ range . }}
+              <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .RelPermalink }}">
+                Voir {{ .Name }}
+              </a>
+            {{ end }}
+          {{ end }}
+        </p>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         {{ .Content }}
