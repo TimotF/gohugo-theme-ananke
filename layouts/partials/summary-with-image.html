@@ -1,17 +1,15 @@
-{{ $featured_image := .Params.featured_image }}
+{{ $featured_image := .Params.featured_Image }}
 <article class="bb b--black-10">
   <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      {{ if .Params.featured_image }}
-          {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-        {{ $featured_image := (trim $featured_image "/") | absURL }}
+    <div class="flex flex-column flex-row-ns center">
+      {{ if .Params.featured_Image }}
         <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
-          <a href="{{.Permalink}}" class="db grow">
-            <img src="{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
+          <a href="{{ .Permalink }}" class="db grow">
+            <img height="150px" src="{{ .Permalink }}/{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
           </a>
         </div>
       {{ end }}
-      <div class="blah w-100{{ if .Params.featured_image }} w-60-ns pl3-ns{{ end }}">
+      <div class="blah w-100{{ if .Params.featured_Image }} w-60-ns pl3-ns{{ end }}">
         <h1 class="f3 mt0 lh-title {{ $.Param "post_content_classes"  | default "serif"}}">
           <a href="{{.Permalink}}" class="color-inherit dim link">
             {{ .Title }}
