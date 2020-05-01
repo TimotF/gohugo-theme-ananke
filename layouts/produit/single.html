@@ -12,7 +12,9 @@
         <p class="f4">
           {{ .Summary }}
         </p>
-        <img height="150px" src="{{ .Params.featured_Image }}">
+        <div class="img-container">
+          <img src="{{ .Params.featured_Image }}">
+        </div>
         <p>
           {{ if isset .Params "ebay" }}
             <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">

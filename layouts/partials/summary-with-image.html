@@ -1,15 +1,15 @@
 {{ $featured_image := .Params.featured_Image }}
-<article class="bb b--black-10">
+<div class="bb b--black-10">
   <div class="pv4 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns center">
+    <article class="flex flex-column flex-row-ns center">
       {{ if .Params.featured_Image }}
-        <div class="w5 pr3-ns mb4 mb0-ns">
+        <div class="pr3-ns mb4 mb0-ns img-container">
           <a href="{{ .Permalink }}">
             <img src="{{ .Permalink }}/{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
           </a>
         </div>
       {{ end }}
-      <div class="{{ if .Params.featured_Image }} pl3-ns{{ end }}" style="flex-grow: 1">
+      <div class="{{ if .Params.featured_Image }} pl3-ns{{ end }}">
         <h1 class="f3 mt0 lh-title {{ $.Param "post_content_classes"  | default "serif"}}">
           <a href="{{.Permalink}}" class="color-inherit dim link">
             {{ .Title }}
@@ -22,6 +22,6 @@
         {{/* TODO: add author
         <p class="f6 lh-copy mv0">By {{ .Author }}</p> */}}
       </div>
-    </div>
+    </article>
   </div>
-</article>
+</div>
