@@ -3,33 +3,41 @@
   <div class="flex-l mt2 mw8 center">
     <article class="center cf pv5 ph3 ph4-ns mw7">
       <header>
-        <p class="f6 b helvetica tracked">
-          {{ .Params.reference | upper  }}
-        </p>
         <h1 class="f1">
           {{ .Title }}
         </h1>
+        <p class="f6 b helvetica tracked">
+          {{ .Params.reference | upper  }}
+        </p>
         <p class="f4">
           {{ .Summary }}
         </p>
-        <div class="img-container">
-          <img src="{{ .Params.featured_Image }}">
-        </div>
-        <p>
-          {{ if isset .Params "ebay" }}
-            <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">
-              Acheter sur eBay
-            </a>
-          {{ end }}
 
-          {{ with .Resources.Match "*" }}
-            {{ range . }}
-              <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .RelPermalink }}">
-                Voir {{ .Name }}
-              </a>
-            {{ end }}
-          {{ end }}
-        </p>
+        <div class="flex mt4">
+          <div class="w-50">
+            <div class="img-container">
+              <img src="{{ .Params.featured_Image }}">
+            </div>
+          </div>
+          <div class="flex">
+            <div style="margin: auto">
+              {{ if isset .Params "ebay" }}
+                <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">
+                  Acheter sur eBay
+                </a>
+              {{ end }}
+    
+              {{ with .Resources.Match "*" }}
+                {{ range . }}
+                  <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .RelPermalink }}">
+                    Voir {{ .Name }}
+                  </a>
+                {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+        
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         {{ .Content }}
