@@ -19,19 +19,23 @@
               <img src="{{ .Params.featured_Image }}">
             </div>
           </div>
-          <div class="flex">
+          <div class="flex pl4-m">
             <div style="margin: auto">
               {{ if isset .Params "ebay" }}
-                <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">
-                  Acheter sur eBay
-                </a>
+                <div>
+                  <a class="f6 link dim ph3 pv2 mb2 dib white bg-blue" href="{{ .Params.ebay }}">
+                    Acheter sur eBay
+                  </a>
+                </div>
               {{ end }}
     
               {{ with .Resources.Match "*" }}
                 {{ range . }}
-                  <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .RelPermalink }}">
-                    Voir {{ .Name }}
-                  </a>
+                  <div>
+                    <a class="f6 link dim ph3 pv2 mb2 dib white bg-black" href="{{ .RelPermalink }}">
+                      Voir {{ .Name }}
+                    </a>
+                  </div>
                 {{ end }}
               {{ end }}
             </div>
