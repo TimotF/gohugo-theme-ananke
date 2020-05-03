@@ -9,13 +9,13 @@
 
     <article class="flex flex-column-m center">
       {{ if .Params.featured_Image }}
-        <div class="pr3-ns mb4 mb0-ns img-container">
+        <div class="mr5 mb4 mb0-ns img-container">
           <a href="{{ .Permalink }}">
             <img src="{{ .Permalink }}/{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
           </a>
         </div>
       {{ end }}
-      <div class="{{ if .Params.featured_Image }} pl4-ns{{ end }}">
+      <div>
         <div class="pt3 f6 f5-l lh-copy nested-copy-line-height nested-links">
           {{ .Summary }}
         </div>
